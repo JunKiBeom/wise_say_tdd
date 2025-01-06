@@ -5,6 +5,7 @@ import java.util.List;
 public class WiseSayingService {
 
     private final WiseSayingRepository wiseSayingRepository;
+
     public WiseSayingService() {
         wiseSayingRepository = new WiseSayingRepository();
     }
@@ -17,5 +18,9 @@ public class WiseSayingService {
 
     public List<WiseSaying> getAllItems() {
         return wiseSayingRepository.findAll();
+    }
+
+    public boolean delete(int id) {
+        return wiseSayingRepository.deleteById(id);
     }
 }

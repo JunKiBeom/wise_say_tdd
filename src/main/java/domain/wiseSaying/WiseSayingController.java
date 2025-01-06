@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class WiseSayingController {
 
     private final Scanner sc;
-    private WiseSayingService wiseSayingService;
+    private final WiseSayingService wiseSayingService;
 
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
@@ -32,5 +32,20 @@ public class WiseSayingController {
         wiseSayingList.reversed().forEach(w -> {
             System.out.printf("%d / %s / %s\n", w.getId(), w.getAuthor(), w.getContent());
         });
+    }
+
+    public void actionDelete(String cmd) {
+        // id=1
+        // ["id", "1"]
+        String param = cmd.split("\\?")[1];
+        String[] paramBits = param.split("=");
+        String strId = paramBits[1];
+        int id = Integer.parseInt(strId);
+
+        boolean result = wiseSayingService.delete(id);
+
+        if(!result) {
+            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
+        }
     }
 }
