@@ -6,7 +6,6 @@ public class WiseSaying {
     private String author;
 
     public WiseSaying(String content, String author) {
-        this.id = id;
         this.content = content;
         this.author = author;
     }
@@ -26,4 +25,5 @@ public class WiseSaying {
     public String getAuthor() {
         return author;
     }
+
 }
