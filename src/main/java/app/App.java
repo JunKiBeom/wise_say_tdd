@@ -29,6 +29,8 @@ public class App {
             String[] cmdBits = cmd.split("\\?");
             String actionName = cmdBits[0];
 
+            //목록?keywordType=content
+
             switch (actionName) {
                 case "종료" -> systemController.exit();
                 case "등록" -> wiseSayingController.actionWrite();
